@@ -11,6 +11,8 @@
 		EE775D8325632B2A008A073B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D8225632B2A008A073B /* ContentView.swift */; };
 		EE775D8525632B2F008A073B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE775D8425632B2F008A073B /* Assets.xcassets */; };
 		EE775D8825632B2F008A073B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE775D8725632B2F008A073B /* Preview Assets.xcassets */; };
+		EE775D9125644139008A073B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D9025644139008A073B /* ListModel.swift */; };
+		EE775D95256446D2008A073B /* ListViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D94256446D2008A073B /* ListViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		EE775D8425632B2F008A073B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE775D8725632B2F008A073B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE775D8925632B2F008A073B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE775D9025644139008A073B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		EE775D94256446D2008A073B /* ListViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				EE775D8025632B2A008A073B /* WineTaste_SUI_appApp.swift */,
-				EE775D8225632B2A008A073B /* ContentView.swift */,
+				EE775D93256446AF008A073B /* Views */,
+				EE775D9025644139008A073B /* ListModel.swift */,
 				EE775D8425632B2F008A073B /* Assets.xcassets */,
 				EE775D8925632B2F008A073B /* Info.plist */,
 				EE775D8625632B2F008A073B /* Preview Content */,
@@ -67,6 +72,15 @@
 				EE775D8725632B2F008A073B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE775D93256446AF008A073B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EE775D8225632B2A008A073B /* ContentView.swift */,
+				EE775D94256446D2008A073B /* ListViews.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE775D95256446D2008A073B /* ListViews.swift in Sources */,
+				EE775D9125644139008A073B /* ListModel.swift in Sources */,
 				EE775D8325632B2A008A073B /* ContentView.swift in Sources */,
 				EE775D8125632B2A008A073B /* WineTaste_SUI_appApp.swift in Sources */,
 			);
