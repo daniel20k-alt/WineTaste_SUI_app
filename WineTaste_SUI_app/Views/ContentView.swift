@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        BookRow(registru: .init())
+        List(Library().sortedItems, id: \.title) { registru in
+            ListRow(registru: registru)
+        }
     }
 }
 
-struct BookRow: View {
+struct ListRow: View {
     let registru: ListModel
     
     var body: some View {
@@ -26,7 +28,7 @@ struct BookRow: View {
                     .font(.title2)
                     .foregroundColor(.secondary)
             }
-            
+            .lineLimit(1) //scrollable
         }
     }
 }

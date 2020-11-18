@@ -13,6 +13,7 @@
 		EE775D8825632B2F008A073B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE775D8725632B2F008A073B /* Preview Assets.xcassets */; };
 		EE775D9125644139008A073B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D9025644139008A073B /* ListModel.swift */; };
 		EE775D95256446D2008A073B /* ListViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D94256446D2008A073B /* ListViews.swift */; };
+		EE775D9925657BB9008A073B /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D9825657BB8008A073B /* Library.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EE775D8925632B2F008A073B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE775D9025644139008A073B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		EE775D94256446D2008A073B /* ListViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViews.swift; sourceTree = "<group>"; };
+		EE775D9825657BB8008A073B /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				EE775D8225632B2A008A073B /* ContentView.swift */,
+				EE775D9825657BB8008A073B /* Library.swift */,
 				EE775D94256446D2008A073B /* ListViews.swift */,
 			);
 			path = Views;
@@ -154,6 +157,7 @@
 			files = (
 				EE775D95256446D2008A073B /* ListViews.swift in Sources */,
 				EE775D9125644139008A073B /* ListModel.swift in Sources */,
+				EE775D9925657BB9008A073B /* Library.swift in Sources */,
 				EE775D8325632B2A008A073B /* ContentView.swift in Sources */,
 				EE775D8125632B2A008A073B /* WineTaste_SUI_appApp.swift in Sources */,
 			);
