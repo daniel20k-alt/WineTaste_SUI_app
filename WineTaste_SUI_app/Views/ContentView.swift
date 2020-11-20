@@ -28,15 +28,13 @@ struct ListRow: View {
             destination: DetailView(registru: registru)
         ) {
         HStack {
-            ListModel.Image(title: registru.title) //see ListViews for the view
-            VStack(alignment: .leading) {
-                Text(registru.title)
-                    .font(.title2)
-                Text(registru.brand)
-                    .font(.title2)
-                    .foregroundColor(.secondary)
-            }
-            .lineLimit(1) //scrollable
+            ListModel.Image(title: registru.title, size: 80) //see ListViews for the view
+            TitleAndBrandStack(
+                registru: registru,
+                titleFont: .title2,
+                brandFont: .title3
+                ) //scrollable
+                .lineLimit(1)
         }
         }
     }
@@ -47,7 +45,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-
 
 

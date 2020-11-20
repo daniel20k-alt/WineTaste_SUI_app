@@ -10,10 +10,16 @@ import SwiftUI
 struct DetailView: View {
     var registru: ListModel
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            TitleAndBrandStack(
+                registru: registru,
+                titleFont: .title,
+                brandFont: .title2
+            )
             ListModel.Image(title: registru.title)
             Spacer()
         }
+        .padding() //space from borders
     }
 }
 
