@@ -8,34 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var library = Library()
     var body: some View {
+
         NavigationView {
-//        NavigationView {
-        List(Library().sortedItems, id: \.title) { registru in
-            ListRow(registru: registru)
+            //        NavigationView {
+            List(library.sortedWines, id: \.self) { wineCatalogue in
+                ListRow(wineCatalogue: wineCatalogue,
+                        image: $library.uiImages[wineCatalogue])
+            }
+            .navigationBarTitle("My Wine Collection")
+            //    }
         }
-        .navigationBarTitle("My Wine Collection")
-//    }
-        }
-        }
+    }
+    
 }
 
 struct ListRow: View {
-    let registru: ListModel
+    let wineCatalogue: WineBotttle
+    @Binding var image: UIImage?
+    
     
     var body: some View {
         NavigationLink(
-            destination: DetailView(registru: registru)
+            destination: DetailView(wineCatalogue: wineCatalogue, image: $image)
         ) {
-        HStack {
-            ListModel.Image(title: registru.title, size: 80) //see ListViews for the view
-            TitleAndBrandStack(
-                registru: registru,
-                titleFont: .title2,
-                brandFont: .title3
+            HStack {
+                WineBotttle.Image(title: wineCatalogue.name, size: 80) //see ListViews for the view
+                TitleAndBrandStack(
+                    wineCatalogue: wineCatalogue,
+                    titleFont: .title2,
+                    brandFont: .title3
                 ) //scrollable
                 .lineLimit(1)
-        }
+            }
         }
     }
 }

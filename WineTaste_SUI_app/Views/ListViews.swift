@@ -9,16 +9,16 @@ import SwiftUI
 
 //when pressing on a title 
 struct TitleAndBrandStack: View {
-    let registru: ListModel
+    let wineCatalogue: WineBotttle
     let titleFont: Font
     let brandFont: Font
     
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(registru.title)
+            Text(wineCatalogue.name)
                 .font(titleFont)
-            Text(registru.brand)
+            Text(wineCatalogue.brand)
                 .font(brandFont)
                 .foregroundColor(.secondary)
         }
@@ -26,7 +26,7 @@ struct TitleAndBrandStack: View {
 }
 
 
-extension ListModel {
+extension WineBotttle {
 
     struct Image: View {
         let title: String
@@ -51,13 +51,13 @@ struct List_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
                 TitleAndBrandStack(
-                    registru: .init(),
+                    wineCatalogue: .init(),
                     titleFont: .title,
                     brandFont: .title2
                 )
-            ListModel.Image(title: ListModel().title) //l
-            ListModel.Image(title: "test1")
-            ListModel.Image(title: "2test")
+            WineBotttle.Image(title: WineBotttle().name) //l
+            WineBotttle.Image(title: "test1")
+            WineBotttle.Image(title: "2test")
     }
     }
 }

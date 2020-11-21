@@ -5,13 +5,13 @@
 //  Created by DDDD on 17/11/2020.
 //
 
-struct ListModel {
+struct WineBotttle: Hashable {
     
-    let title: String
+    let name: String
     let brand: String
     
     init(title: String = "Denumire vin", brand: String = "Chateau Brand") {
-        self.title = title
+        self.name = title
         self.brand = brand
     }
 }

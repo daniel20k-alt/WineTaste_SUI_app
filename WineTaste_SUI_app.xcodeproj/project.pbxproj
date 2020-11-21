@@ -7,24 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE415A5B2569BFBD00EFC450 /* PHPickerViewController.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE415A5A2569BFBD00EFC450 /* PHPickerViewController.View.swift */; };
 		EE775D8125632B2A008A073B /* WineTaste_SUI_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D8025632B2A008A073B /* WineTaste_SUI_appApp.swift */; };
 		EE775D8325632B2A008A073B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D8225632B2A008A073B /* ContentView.swift */; };
 		EE775D8525632B2F008A073B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE775D8425632B2F008A073B /* Assets.xcassets */; };
 		EE775D8825632B2F008A073B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE775D8725632B2F008A073B /* Preview Assets.xcassets */; };
-		EE775D9125644139008A073B /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D9025644139008A073B /* ListModel.swift */; };
+		EE775D9125644139008A073B /* WineBotttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D9025644139008A073B /* WineBotttle.swift */; };
 		EE775D95256446D2008A073B /* ListViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D94256446D2008A073B /* ListViews.swift */; };
 		EE775D9925657BB9008A073B /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D9825657BB8008A073B /* Library.swift */; };
 		EE775DA32566FE22008A073B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775DA22566FE22008A073B /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE415A5A2569BFBD00EFC450 /* PHPickerViewController.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerViewController.View.swift; sourceTree = "<group>"; };
 		EE775D7D25632B2A008A073B /* WineTaste_SUI_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineTaste_SUI_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE775D8025632B2A008A073B /* WineTaste_SUI_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineTaste_SUI_appApp.swift; sourceTree = "<group>"; };
 		EE775D8225632B2A008A073B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE775D8425632B2F008A073B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE775D8725632B2F008A073B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EE775D8925632B2F008A073B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE775D9025644139008A073B /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		EE775D9025644139008A073B /* WineBotttle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineBotttle.swift; sourceTree = "<group>"; };
 		EE775D94256446D2008A073B /* ListViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViews.swift; sourceTree = "<group>"; };
 		EE775D9825657BB8008A073B /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		EE775DA22566FE22008A073B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -62,7 +64,7 @@
 			children = (
 				EE775D8025632B2A008A073B /* WineTaste_SUI_appApp.swift */,
 				EE775D93256446AF008A073B /* Views */,
-				EE775D9025644139008A073B /* ListModel.swift */,
+				EE775D9025644139008A073B /* WineBotttle.swift */,
 				EE775D8425632B2F008A073B /* Assets.xcassets */,
 				EE775D8925632B2F008A073B /* Info.plist */,
 				EE775D8625632B2F008A073B /* Preview Content */,
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				EE775D8225632B2A008A073B /* ContentView.swift */,
+				EE415A5A2569BFBD00EFC450 /* PHPickerViewController.View.swift */,
 				EE775DA22566FE22008A073B /* DetailView.swift */,
 				EE775D9825657BB8008A073B /* Library.swift */,
 				EE775D94256446D2008A073B /* ListViews.swift */,
@@ -160,8 +163,9 @@
 			files = (
 				EE775D95256446D2008A073B /* ListViews.swift in Sources */,
 				EE775DA32566FE22008A073B /* DetailView.swift in Sources */,
-				EE775D9125644139008A073B /* ListModel.swift in Sources */,
+				EE775D9125644139008A073B /* WineBotttle.swift in Sources */,
 				EE775D9925657BB9008A073B /* Library.swift in Sources */,
+				EE415A5B2569BFBD00EFC450 /* PHPickerViewController.View.swift in Sources */,
 				EE775D8325632B2A008A073B /* ContentView.swift in Sources */,
 				EE775D8125632B2A008A073B /* WineTaste_SUI_appApp.swift in Sources */,
 			);

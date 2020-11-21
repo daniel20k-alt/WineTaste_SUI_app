@@ -5,13 +5,14 @@
 //  Created by DDDD on 18/11/2020.
 //
 
+import class UIKit.UIImage
+
 import Foundation
 
 struct Library {
-    var sortedItems: [ListModel] { itemsCashe}
+    var sortedWines: [WineBotttle] { itemsCashe}
     
-    
-    private var itemsCashe: [ListModel] = [
+    private var itemsCashe: [WineBotttle] = [
     
         .init(title: "Cabernet", brand: "Purcari"),
         .init(title: "Cahor", brand: "Bostavan"),
@@ -23,4 +24,7 @@ struct Library {
         .init(title: "Shiraz", brand: "Vartely6"),
         .init(title: "Shiraz", brand: "Vartely7")
     ]
+    
+    var uiImages: [WineBotttle: UIImage] = [:]
+    
 }
