@@ -27,22 +27,22 @@ struct TitleAndBrandStack: View {
 
 
 extension WineBotttle {
-
+    
     struct Image: View {
         let title: String
         var size: CGFloat?
         
         var body: some View {
             let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "bookmark")
-                
-                symbol //displayed in form of letter
+            
+            symbol //displayed in form of letter
                 .resizable()
                 .scaledToFit()
                 .frame(width: size, height: size)
                 .font(Font.title.weight(.light))
                 .foregroundColor(.secondary)
         }
-
+        
     }
 }
 
@@ -50,15 +50,16 @@ extension WineBotttle {
 struct List_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-                TitleAndBrandStack(
-                    wineCatalogue: .init(),
-                    titleFont: .title,
-                    brandFont: .title2
-                )
+            TitleAndBrandStack(
+                wineCatalogue: .init(),
+                titleFont: .title,
+                brandFont: .title2
+            )
             WineBotttle.Image(title: WineBotttle().name) //l
             WineBotttle.Image(title: "test1")
             WineBotttle.Image(title: "2test")
-    }
+        }
+        .previewedInAllColorSchemes
     }
 }
 
@@ -67,10 +68,18 @@ extension Image {
     init?(title: String) {
         guard let character = title.first,
               
-       case let symbolName = "\(character.lowercased()).square",
-        
-        UIImage(systemName: symbolName) != nil else { return nil } //not allowing emojis
+              case let symbolName = "\(character.lowercased()).square",
+              
+              UIImage(systemName: symbolName) != nil else { return nil } //not allowing emojis
         
         self.init(systemName: symbolName)
+    }
+}
+
+
+extension View {
+    var previewedInAllColorSchemes: some View {
+        ForEach(
+            ColorScheme.allCases, id: \.self, content: preferredColorScheme)
     }
 }

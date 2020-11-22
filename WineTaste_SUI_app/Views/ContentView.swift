@@ -42,6 +42,7 @@ struct ListRow: View {
                 ) //scrollable
                 .lineLimit(1)
             }
+            .padding(.vertical, 8)
         }
     }
 }
@@ -49,6 +50,7 @@ struct ListRow: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .previewedInAllColorSchemes
     }
 }
 
