@@ -9,7 +9,7 @@ import SwiftUI
 
 //when pressing on a title 
 struct TitleAndBrandStack: View {
-    let wineCatalogue: WineBotttle
+    let wineCatalogue: WineBottle
     let titleFont: Font
     let brandFont: Font
     
@@ -26,21 +26,31 @@ struct TitleAndBrandStack: View {
 }
 
 
-extension WineBotttle {
-    
+extension WineBottle {
     struct Image: View {
+        let uiImage: UIImage?
         let title: String
         var size: CGFloat?
+        let cornerRadius: CGFloat
         
         var body: some View {
-            let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "bookmark")
-            
-            symbol //displayed in form of letter
-                .resizable()
-                .scaledToFit()
-                .frame(width: size, height: size)
-                .font(Font.title.weight(.light))
-                .foregroundColor(.secondary)
+            if let image = uiImage.map(SwiftUI.Image.init) {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: size, height: size)
+                    .cornerRadius(cornerRadius)
+            } else {
+                
+                let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "bookmark")
+                
+                symbol //displayed in form of letter
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: size, height: size)
+                    .font(Font.title.weight(.light))
+                    .foregroundColor(.secondary)
+            }
         }
         
     }
@@ -55,9 +65,9 @@ struct List_Previews: PreviewProvider {
                 titleFont: .title,
                 brandFont: .title2
             )
-            WineBotttle.Image(title: WineBotttle().name) //l
-            WineBotttle.Image(title: "test1")
-            WineBotttle.Image(title: "2test")
+            WineBottle.Image(title: WineBottle().name) //l
+            WineBottle.Image(title: "test1")
+            WineBottle.Image(title: "2test")
         }
         .previewedInAllColorSchemes
     }
@@ -76,6 +86,17 @@ extension Image {
     }
 }
 
+
+extension WineBottle.Image {
+    //a preview image
+    init(title: String) {
+        self.init(
+            uiImage: nil,
+            title: title,
+            cornerRadius: .init()
+        )
+    }
+}
 
 extension View {
     var previewedInAllColorSchemes: some View {

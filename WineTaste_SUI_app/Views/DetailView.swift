@@ -9,7 +9,7 @@ import class PhotosUI.PHPickerViewController
 import SwiftUI
 
 struct DetailView: View {
-    var wineCatalogue: WineBotttle
+    var wineCatalogue: WineBottle
     
     @Binding var image: UIImage?
     @State var showingImagePicker = false //will not be presented
@@ -23,7 +23,12 @@ struct DetailView: View {
             )
 
             VStack {
-                WineBotttle.Image(title: wineCatalogue.name)
+                WineBottle.Image(
+                    uiImage: image,
+                    title: wineCatalogue.name,
+                    cornerRadius: 16
+                )
+                .scaledToFit()
                 
                 Button("Update the image") { showingImagePicker = true
                 }

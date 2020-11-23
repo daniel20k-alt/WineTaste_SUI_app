@@ -10,9 +10,9 @@ import class UIKit.UIImage
 import Foundation
 
 struct Library {
-    var sortedWines: [WineBotttle] { itemsCashe}
+    var sortedWines: [WineBottle] { itemsCashe}
     
-    private var itemsCashe: [WineBotttle] = [
+    private var itemsCashe: [WineBottle] = [
     
         .init(title: "Cabernet", brand: "Purcari"),
         .init(title: "Cahor", brand: "Bostavan"),
@@ -25,6 +25,6 @@ struct Library {
         .init(title: "Shiraz", brand: "Vartely7")
     ]
     
-    var uiImages: [WineBotttle: UIImage] = [:]
+    var uiImages: [WineBottle: UIImage] = [:]
     
 }

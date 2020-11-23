@@ -25,7 +25,7 @@ struct ContentView: View {
 }
 
 struct ListRow: View {
-    let wineCatalogue: WineBotttle
+    let wineCatalogue: WineBottle
     @Binding var image: UIImage?
     
     
@@ -34,7 +34,11 @@ struct ListRow: View {
             destination: DetailView(wineCatalogue: wineCatalogue, image: $image)
         ) {
             HStack {
-                WineBotttle.Image(title: wineCatalogue.name, size: 80) //see ListViews for the view
+                WineBottle.Image(
+                    uiImage: image,
+                    title: wineCatalogue.name,
+                    size: 80,
+                    cornerRadius: 12) //see ListViews for the view
                 TitleAndBrandStack(
                     wineCatalogue: wineCatalogue,
                     titleFont: .title2,

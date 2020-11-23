@@ -5,7 +5,7 @@
 //  Created by DDDD on 17/11/2020.
 //
 
-struct WineBotttle: Hashable {
+struct WineBottle: Hashable {
     
     let name: String
     let brand: String
