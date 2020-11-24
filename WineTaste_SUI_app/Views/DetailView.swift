@@ -13,7 +13,8 @@ struct DetailView: View {
     
     @Binding var image: UIImage?
     @State var showingImagePicker = false //will not be presented
-
+    @State var deletingImage = false
+    
     var body: some View {
         VStack(alignment: .leading) {
             TitleAndBrandStack(
@@ -21,7 +22,7 @@ struct DetailView: View {
                 titleFont: .title,
                 brandFont: .title2
             )
-
+            
             VStack {
                 WineBottle.Image(
                     uiImage: image,
@@ -30,18 +31,49 @@ struct DetailView: View {
                 )
                 .scaledToFit()
                 
-                Button("Update the image") { showingImagePicker = true
-                }
-                .padding()
-            }
-            
-            Spacer()
-        }
+              //update button will show without delete button when
+        let updateButton = Button("Update image") { showingImagePicker = true
+                    }
         .padding()
-        .sheet(isPresented: $showingImagePicker) {
-            PHPickerViewController.View(image: $image) // var image: UIImage?
-        } //space from borders
+                
+                if image != nil {
+                HStack {
+                
+                    
+                        Spacer()
+                        //delete button will show only when there is an image
+                        Button("Delete image") {
+                            deletingImage = true
+                            
+                        }
+                        Spacer()
+                        
+                        updateButton
+                        
+                        Spacer()
+                    }
+                } else {
+                    updateButton
+            }
+        }
+        
+        Spacer()
     }
+    .padding()
+    .sheet(isPresented: $showingImagePicker) {
+    PHPickerViewController.View(image: $image) // var image: UIImage?
+    } //space from borders
+    //alert when the user would like to replace the picture
+    
+    .alert(isPresented: $deletingImage) {
+    .init(
+    title: .init("Delete image for \(wineCatalogue.name)?"), primaryButton: .destructive(.init("Delete")) {
+    image = nil
+    },
+    secondaryButton: .cancel())
+    
+    }
+}
 }
 
 struct DetailView_Previews: PreviewProvider {
