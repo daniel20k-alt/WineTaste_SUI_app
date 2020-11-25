@@ -13,7 +13,9 @@ struct ContentView: View {
 
         NavigationView {
             //        NavigationView {
-            List(library.sortedWines, id: \.self) { wineCatalogue in
+            List(library.sortedWines) {
+//                removed id: \.self since WineBottle conforms to identifiable
+                wineCatalogue in
                 ListRow(wineCatalogue: wineCatalogue,
                         image: $library.uiImages[wineCatalogue])
             }

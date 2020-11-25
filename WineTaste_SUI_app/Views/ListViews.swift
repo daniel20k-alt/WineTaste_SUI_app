@@ -7,6 +7,29 @@
 
 import SwiftUI
 
+struct CollectionBookmarkButton: View {
+    var wineCatalogue: WineBottle
+    
+    var body: some View {
+        let bookmark = "bookmark"
+        
+        Button {
+            wineCatalogue.haveInCollection.toggle()
+        } label: { //.fill if its true, otherwise simple bookmark
+            Image(systemName:  wineCatalogue.haveInCollection ? "\(bookmark).fill" : bookmark)
+                .font(.system(size: 48, weight: .light))
+            
+        }
+    }
+}
+
+
+
+
+
+
+
+
 //when pressing on a title 
 struct TitleAndBrandStack: View {
     let wineCatalogue: WineBottle
