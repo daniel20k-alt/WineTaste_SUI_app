@@ -5,13 +5,14 @@
 //  Created by DDDD on 17/11/2020.
 //
 
-class WineBottle {
-    
+import Combine
+
+class WineBottle: ObservableObject {
     
     let name: String
     let brand: String
-    var review: String
-    var haveInCollection: Bool
+    @Published var review: String
+    @Published var haveInCollection: Bool
     
     init(title: String = "Denumire vin", brand: String = "Chateau Brand", review: String = "", haveInCollection: Bool = false) {
         self.name = title

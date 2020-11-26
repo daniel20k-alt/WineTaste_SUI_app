@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionBookmarkButton: View {
-    var wineCatalogue: WineBottle
+    @ObservedObject var wineCatalogue: WineBottle
     
     var body: some View {
         let bookmark = "bookmark"
@@ -18,24 +18,15 @@ struct CollectionBookmarkButton: View {
         } label: { //.fill if its true, otherwise simple bookmark
             Image(systemName:  wineCatalogue.haveInCollection ? "\(bookmark).fill" : bookmark)
                 .font(.system(size: 48, weight: .light))
-            
         }
     }
 }
-
-
-
-
-
-
-
 
 //when pressing on a title 
 struct TitleAndBrandStack: View {
     let wineCatalogue: WineBottle
     let titleFont: Font
     let brandFont: Font
-    
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -82,17 +73,24 @@ extension WineBottle {
 //previewing the image only
 struct List_Previews: PreviewProvider {
     static var previews: some View {
+        
         VStack {
-            TitleAndBrandStack(
-                wineCatalogue: .init(),
-                titleFont: .title,
-                brandFont: .title2
-            )
+            HStack {
+                CollectionBookmarkButton(wineCatalogue: .init()) //collection bookmark
+                CollectionBookmarkButton(wineCatalogue: .init(haveInCollection: true)) //.filled
+                
+                TitleAndBrandStack(
+                    wineCatalogue: .init(),
+                    titleFont: .title,
+                    brandFont: .title2
+                )
+            }
             WineBottle.Image(title: WineBottle().name) //l
             WineBottle.Image(title: "test1")
             WineBottle.Image(title: "2test")
         }
         .previewedInAllColorSchemes
+        
     }
 }
 

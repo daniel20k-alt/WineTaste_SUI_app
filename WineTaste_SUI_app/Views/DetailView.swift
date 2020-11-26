@@ -17,11 +17,14 @@ struct DetailView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            TitleAndBrandStack(
-                wineCatalogue: wineCatalogue,
-                titleFont: .title,
-                brandFont: .title2
-            )
+            HStack (spacing: 16) {
+                CollectionBookmarkButton(wineCatalogue: wineCatalogue)
+                TitleAndBrandStack(
+                    wineCatalogue: wineCatalogue,
+                    titleFont: .title,
+                    brandFont: .title2
+                )
+            }
             
             VStack {
                 WineBottle.Image(
@@ -31,15 +34,14 @@ struct DetailView: View {
                 )
                 .scaledToFit()
                 
-              //update button will show without delete button when
-        let updateButton = Button("Update image") { showingImagePicker = true
-                    }
-        .padding()
+                //update button will show without delete button when
+                let updateButton = Button("Update image") { showingImagePicker = true
+                }
+                .padding()
                 
                 if image != nil {
-                HStack {
-                
-                    
+                    HStack {
+                        
                         Spacer()
                         //delete button will show only when there is an image
                         Button("Delete image") {
@@ -54,26 +56,26 @@ struct DetailView: View {
                     }
                 } else {
                     updateButton
+                }
             }
+            
+            Spacer()
         }
+        .padding()
+        .sheet(isPresented: $showingImagePicker) {
+            PHPickerViewController.View(image: $image) // var image: UIImage?
+        } //space from borders
+        //alert when the user would like to replace the picture
         
-        Spacer()
+        .alert(isPresented: $deletingImage) {
+            .init(
+                title: .init("Delete image for \(wineCatalogue.name)?"), primaryButton: .destructive(.init("Delete")) {
+                    image = nil
+                },
+                secondaryButton: .cancel())
+            
+        }
     }
-    .padding()
-    .sheet(isPresented: $showingImagePicker) {
-    PHPickerViewController.View(image: $image) // var image: UIImage?
-    } //space from borders
-    //alert when the user would like to replace the picture
-    
-    .alert(isPresented: $deletingImage) {
-    .init(
-    title: .init("Delete image for \(wineCatalogue.name)?"), primaryButton: .destructive(.init("Delete")) {
-    image = nil
-    },
-    secondaryButton: .cancel())
-    
-    }
-}
 }
 
 struct DetailView_Previews: PreviewProvider {

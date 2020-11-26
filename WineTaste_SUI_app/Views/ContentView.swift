@@ -47,6 +47,13 @@ struct ListRow: View {
                     brandFont: .title3
                 ) //scrollable
                 .lineLimit(1)
+                 
+                Spacer()
+                //implementing the button in ContentView
+                CollectionBookmarkButton(wineCatalogue: wineCatalogue)
+                    //allowing button interaction
+                    .buttonStyle(BorderlessButtonStyle())
+                
             }
             .padding(.vertical, 8)
         }
