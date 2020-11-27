@@ -27,6 +27,8 @@ struct TitleAndBrandStack: View {
     let wineCatalogue: WineBottle
     let titleFont: Font
     let brandFont: Font
+    let otherInfoFont: Font
+    let typeFont: Font
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -35,6 +37,15 @@ struct TitleAndBrandStack: View {
             Text(wineCatalogue.brand)
                 .font(brandFont)
                 .foregroundColor(.secondary)
+            HStack {
+                Text(wineCatalogue.year)
+                .font(otherInfoFont)
+                .foregroundColor(.primary)
+                
+            Text(wineCatalogue.type)
+                .font(otherInfoFont)
+                .foregroundColor(.secondary)
+            }
         }
     }
 }
@@ -82,7 +93,9 @@ struct List_Previews: PreviewProvider {
                 TitleAndBrandStack(
                     wineCatalogue: .init(),
                     titleFont: .title,
-                    brandFont: .title2
+                    brandFont: .title2,
+                    otherInfoFont: .title2,
+                    typeFont: .title3
                 )
             }
             WineBottle.Image(title: WineBottle().name) //l

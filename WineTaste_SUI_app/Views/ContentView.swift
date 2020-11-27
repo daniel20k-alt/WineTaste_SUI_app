@@ -23,12 +23,12 @@ struct ContentView: View {
             //    }
         }
     }
-    
 }
 
 struct ListRow: View {
     let wineCatalogue: WineBottle
     @Binding var image: UIImage?
+ 
     
     
     var body: some View {
@@ -44,7 +44,9 @@ struct ListRow: View {
                 TitleAndBrandStack(
                     wineCatalogue: wineCatalogue,
                     titleFont: .title2,
-                    brandFont: .title3
+                    brandFont: .title3,
+                    otherInfoFont: .title3,
+                    typeFont: .title3
                 ) //scrollable
                 .lineLimit(1)
                  

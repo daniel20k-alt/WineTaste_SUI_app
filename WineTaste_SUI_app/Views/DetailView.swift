@@ -9,7 +9,7 @@ import class PhotosUI.PHPickerViewController
 import SwiftUI
 
 struct DetailView: View {
-    var wineCatalogue: WineBottle
+  @ObservedObject var wineCatalogue: WineBottle
     
     @Binding var image: UIImage?
     @State var showingImagePicker = false //will not be presented
@@ -22,11 +22,20 @@ struct DetailView: View {
                 TitleAndBrandStack(
                     wineCatalogue: wineCatalogue,
                     titleFont: .title,
-                    brandFont: .title2
+                    brandFont: .title2,
+                    otherInfoFont: .title2,
+                    typeFont: .title3
                 )
+              
             }
             
             VStack {
+                Divider()
+                    .padding(.vertical)
+                TextField("Impresiile tale despre vin", text: $wineCatalogue.review)
+                Divider()
+                    .padding(.vertical)
+                
                 WineBottle.Image(
                     uiImage: image,
                     title: wineCatalogue.name,

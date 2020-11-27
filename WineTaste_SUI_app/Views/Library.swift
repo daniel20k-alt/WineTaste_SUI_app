@@ -14,7 +14,7 @@ struct Library {
     
     private var itemsCashe: [WineBottle] = [
     
-        .init(title: "Cabernet", brand: "Purcari"),
+        .init(title: "Cabernet", brand: "Purcari", year: "An: 2016", type: "Alb-Sec"),
         .init(title: "Cahor", brand: "Bostavan"),
         .init(title: "Shiraz", brand: "Vartely"),
         .init(title: "Shiraz", brand: "Vartely2"),
