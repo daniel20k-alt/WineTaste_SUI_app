@@ -9,18 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     @State var library = Library()
+    
     var body: some View {
-
         NavigationView {
             //        NavigationView {
-            List(library.sortedWines) {
-//                removed id: \.self since WineBottle conforms to identifiable
-                wineCatalogue in
-                ListRow(wineCatalogue: wineCatalogue,
-                        image: $library.uiImages[wineCatalogue])
+            List {
+                Button {
+                    
+                } label: {
+                    Spacer()
+                    
+                    VStack(spacing: 10) {
+                        Image(systemName: "bookmark")
+                            .font(.system(size: 60))
+                        Text("Add a new bottle")
+                            .font(.title2)
+                    }
+                    
+                    Spacer()
+                }
+                .buttonStyle(BorderlessButtonStyle())
+                .padding(.vertical, 10)
+                
+
+                ForEach(library.sortedWines) {
+                    //removed id:\.self since WineBottle conforms to identifiable
+                    wineCatalogue in
+                    ListRow(wineCatalogue: wineCatalogue,
+                            image: $library.uiImages[wineCatalogue])
+                }
             }
             .navigationBarTitle("My Wine Collection")
-            //    }
         }
     }
 }
@@ -28,8 +47,6 @@ struct ContentView: View {
 struct ListRow: View {
     let wineCatalogue: WineBottle
     @Binding var image: UIImage?
- 
-    
     
     var body: some View {
         NavigationLink(
@@ -49,7 +66,7 @@ struct ListRow: View {
                     typeFont: .title3
                 ) //scrollable
                 .lineLimit(1)
-                 
+                
                 Spacer()
                 //implementing the button in ContentView
                 CollectionBookmarkButton(wineCatalogue: wineCatalogue)
