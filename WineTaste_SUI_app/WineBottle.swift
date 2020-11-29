@@ -9,8 +9,8 @@ import Combine
 
 class WineBottle: ObservableObject {
     
-    let name: String
-    let brand: String
+    @Published var name: String
+    @Published var brand: String
     let year: String
     let type: String
     @Published var review: String

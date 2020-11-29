@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3A459F2573B574009697E2 /* NewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3A459E2573B574009697E2 /* NewListView.swift */; };
+		EE3A45A22573BC8F009697E2 /* ReviewAndImageStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3A45A12573BC8E009697E2 /* ReviewAndImageStack.swift */; };
 		EE415A5B2569BFBD00EFC450 /* PHPickerViewController.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE415A5A2569BFBD00EFC450 /* PHPickerViewController.View.swift */; };
 		EE775D8125632B2A008A073B /* WineTaste_SUI_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D8025632B2A008A073B /* WineTaste_SUI_appApp.swift */; };
 		EE775D8325632B2A008A073B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE775D8225632B2A008A073B /* ContentView.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE3A459E2573B574009697E2 /* NewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListView.swift; sourceTree = "<group>"; };
+		EE3A45A12573BC8E009697E2 /* ReviewAndImageStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewAndImageStack.swift; sourceTree = "<group>"; };
 		EE415A5A2569BFBD00EFC450 /* PHPickerViewController.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerViewController.View.swift; sourceTree = "<group>"; };
 		EE775D7D25632B2A008A073B /* WineTaste_SUI_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineTaste_SUI_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE775D8025632B2A008A073B /* WineTaste_SUI_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WineTaste_SUI_appApp.swift; sourceTree = "<group>"; };
@@ -86,8 +90,10 @@
 				EE775D8225632B2A008A073B /* ContentView.swift */,
 				EE415A5A2569BFBD00EFC450 /* PHPickerViewController.View.swift */,
 				EE775DA22566FE22008A073B /* DetailView.swift */,
+				EE3A45A12573BC8E009697E2 /* ReviewAndImageStack.swift */,
 				EE775D9825657BB8008A073B /* Library.swift */,
 				EE775D94256446D2008A073B /* ListViews.swift */,
+				EE3A459E2573B574009697E2 /* NewListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,7 +172,9 @@
 				EE775D9125644139008A073B /* WineBottle.swift in Sources */,
 				EE775D9925657BB9008A073B /* Library.swift in Sources */,
 				EE415A5B2569BFBD00EFC450 /* PHPickerViewController.View.swift in Sources */,
+				EE3A459F2573B574009697E2 /* NewListView.swift in Sources */,
 				EE775D8325632B2A008A073B /* ContentView.swift in Sources */,
+				EE3A45A22573BC8F009697E2 /* ReviewAndImageStack.swift in Sources */,
 				EE775D8125632B2A008A073B /* WineTaste_SUI_appApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

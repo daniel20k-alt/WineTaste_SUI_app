@@ -9,12 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     @State var library = Library()
+    @State var addingNewBottle: Bool = false
     
     var body: some View {
         NavigationView {
             //        NavigationView {
             List {
                 Button {
+                    addingNewBottle = true
                     
                 } label: {
                     Spacer()
@@ -30,6 +32,9 @@ struct ContentView: View {
                 }
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.vertical, 10)
+                .sheet(isPresented: $addingNewBottle,
+                    content: NewListView.init)
+                
                 
 
                 ForEach(library.sortedWines) {
