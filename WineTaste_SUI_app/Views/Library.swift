@@ -6,13 +6,24 @@
 //
 
 import class UIKit.UIImage
+import Combine
 
-import Foundation
 
-struct Library {
+class Library: ObservableObject {
     var sortedWines: [WineBottle] { itemsCashe}
     
-    private var itemsCashe: [WineBottle] = [
+    //allowing the user to create its own library
+    /// adds the user's book at the top
+
+    func addNewBottle(_ bottle: WineBottle, image: UIImage?) {
+        itemsCashe.insert(bottle, at: 0)
+        uiImages[bottle] = image
+        
+    }
+    
+    //the items that are already stored in the app's memory
+    
+   @Published private var itemsCashe: [WineBottle] = [
     
         .init(title: "Cabernet", brand: "Purcari", year: "An: 2016", type: "Alb-Sec"),
         .init(title: "Cahor", brand: "Bostavan"),
@@ -25,6 +36,6 @@ struct Library {
         .init(title: "Shiraz", brand: "Vartely7")
     ]
     
-    var uiImages: [WineBottle: UIImage] = [:]
+    @Published var uiImages: [WineBottle: UIImage] = [:]
     
 }

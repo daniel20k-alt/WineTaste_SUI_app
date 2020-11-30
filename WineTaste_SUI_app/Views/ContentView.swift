@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var library = Library()
+    @EnvironmentObject var library: Library
     @State var addingNewBottle: Bool = false
     
     var body: some View {
@@ -87,6 +87,7 @@ struct ListRow: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Library())
             .previewedInAllColorSchemes
     }
 }

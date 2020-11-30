@@ -11,20 +11,31 @@ struct NewListView: View {
     
     @ObservedObject var wineBottle = WineBottle(title: "", brand: "")
     @State var image: UIImage? = nil
+    @EnvironmentObject var library: Library
     
     var body: some View {
-        VStack(spacing: 30) {
-            TextField("Name", text: $wineBottle.name)
-            TextField("Brand", text: $wineBottle.brand)
-            ReviewAndImageStack(wineCatalogue: wineBottle, image: $image)
+        NavigationView {
+            VStack(spacing: 30) {
+                TextField("Name", text: $wineBottle.name)
+                TextField("Brand", text: $wineBottle.brand)
+                ReviewAndImageStack(wineCatalogue: wineBottle, image: $image)
+            }
+            .padding()
+            .navigationBarTitle("Adding a new bottle")
+            .toolbar {
+                ToolbarItem(placement: .status) {
+                    Button("Add to the collection") {
+                        library.addNewBottle(wineBottle, image: image)
+                        
+                    }
+                }
+            }
         }
-        .padding()
-        
     }
 }
 
 struct NewListView_Previews: PreviewProvider {
     static var previews: some View {
-        NewListView()
+        NewListView().environmentObject(Library())
     }
 }
