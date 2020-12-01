@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var wineCatalogue: WineBottle
-    @Binding var image: UIImage?
+    @EnvironmentObject var library: Library
 
     
     var body: some View {
@@ -25,7 +25,7 @@ struct DetailView: View {
                 )
             }
             
-            ReviewAndImageStack(wineCatalogue: wineCatalogue, image: $image)
+            ReviewAndImageStack(wineCatalogue: wineCatalogue, image: $library.uiImages[wineCatalogue])
         }
         .padding()
     }
@@ -33,8 +33,10 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(wineCatalogue: .init(), image: .constant(nil))
+        DetailView(wineCatalogue: .init())
+            .environmentObject(Library())
             .previewedInAllColorSchemes
+            
     }
 }
 

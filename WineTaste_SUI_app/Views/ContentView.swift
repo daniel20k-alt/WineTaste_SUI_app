@@ -40,8 +40,7 @@ struct ContentView: View {
                 ForEach(library.sortedWines) {
                     //removed id:\.self since WineBottle conforms to identifiable
                     wineCatalogue in
-                    ListRow(wineCatalogue: wineCatalogue,
-                            image: $library.uiImages[wineCatalogue])
+                    ListRow(wineCatalogue: wineCatalogue)
                 }
             }
             .navigationBarTitle("My Wine Collection")
@@ -51,15 +50,15 @@ struct ContentView: View {
 
 struct ListRow: View {
     let wineCatalogue: WineBottle
-    @Binding var image: UIImage?
+    @EnvironmentObject var library: Library
     
     var body: some View {
         NavigationLink(
-            destination: DetailView(wineCatalogue: wineCatalogue, image: $image)
+            destination: DetailView(wineCatalogue: wineCatalogue)
         ) {
             HStack {
                 WineBottle.Image(
-                    uiImage: image,
+                    uiImage: library.uiImages[wineCatalogue],
                     title: wineCatalogue.name,
                     size: 80,
                     cornerRadius: 12) //see ListViews for the view

@@ -12,6 +12,7 @@ struct NewListView: View {
     @ObservedObject var wineBottle = WineBottle(title: "", brand: "")
     @State var image: UIImage? = nil
     @EnvironmentObject var library: Library
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         NavigationView {
@@ -26,8 +27,10 @@ struct NewListView: View {
                 ToolbarItem(placement: .status) {
                     Button("Add to the collection") {
                         library.addNewBottle(wineBottle, image: image)
+                        presentationMode.wrappedValue.dismiss()
                         
-                    }
+                    }//disable button if either name or brand is empty
+                    .disabled([wineBottle.name, wineBottle.brand].contains(where: \.isEmpty))
                 }
             }
         }
