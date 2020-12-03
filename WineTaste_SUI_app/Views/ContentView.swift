@@ -33,22 +33,19 @@ struct ContentView: View {
                 .buttonStyle(BorderlessButtonStyle())
                 .padding(.vertical, 10)
                 .sheet(isPresented: $addingNewBottle,
-                    content: NewListView.init)
-                
-                
-
-                ForEach(library.sortedWines) {
-                    //removed id:\.self since WineBottle conforms to identifiable
-                    wineCatalogue in
-                    ListRow(wineCatalogue: wineCatalogue)
+                       content: NewListView.init)
+            
+                ForEach(Section.allCases, id: \.self) {
+                    SectionView(section: $0)
                 }
+                
             }
-            .navigationBarTitle("My Wine Collection")
+        .navigationBarTitle("My Wine Collection")
         }
     }
 }
 
-struct ListRow: View {
+private struct ListRow: View {
     let wineCatalogue: WineBottle
     @EnvironmentObject var library: Library
     
@@ -82,6 +79,46 @@ struct ListRow: View {
         }
     }
 }
+
+
+private struct SectionView: View {
+    let section: Section
+    @EnvironmentObject var library: Library
+    
+    var title: String {
+        switch section {
+        
+        case .inStore:
+            return "Not yet tried"
+        case .inCollection:
+            return "Already in collection"
+        }
+    }
+    
+    var body: some View {
+        if let bottles = library.manuallySortedBottles[section] {
+            SwiftUI.Section(header:
+                ZStack {
+                Image("LightTexture")
+                                    .resizable()
+                                    .scaledToFit()
+                Text(title)
+                    .font(.custom("American Typewriter", size: 25))
+
+            }
+            .listRowInsets(.init())
+            ) {
+                ForEach(bottles) {
+                    ListRow(wineCatalogue: $0)
+                }
+            }
+        }
+    }
+}
+
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

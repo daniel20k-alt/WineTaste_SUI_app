@@ -8,9 +8,19 @@
 import class UIKit.UIImage
 import Combine
 
+enum Section: CaseIterable {
+   case inStore
+   case inCollection
+}
 
-class Library: ObservableObject {
+
+final class Library: ObservableObject {
     var sortedWines: [WineBottle] { itemsCashe}
+    
+    var manuallySortedBottles: [Section: [WineBottle]] {
+        Dictionary(grouping: itemsCashe, by: \.haveInCollection)
+            .mapKeys(Section.init)
+    }
     
     //allowing the user to create its own library
     /// adds the user's book at the top
@@ -21,13 +31,16 @@ class Library: ObservableObject {
         
     }
     
+    
+    @Published var uiImages: [WineBottle: UIImage] = [:]
+    
     //the items that are already stored in the app's memory
     
    @Published private var itemsCashe: [WineBottle] = [
     
         .init(title: "Cabernet", brand: "Purcari", year: "An: 2016", type: "Alb-Sec"),
-        .init(title: "Cahor", brand: "Bostavan"),
-        .init(title: "Shiraz", brand: "Vartely"),
+    .init(title: "Cahor", brand: "Bostavan", review: "test1 text"),
+    .init(title: "Shiraz", brand: "Vartely", year: "An: 2018", type: "Rosu-Sec"),
         .init(title: "Shiraz", brand: "Vartely2"),
         .init(title: "Shiraz", brand: "Vartely3"),
         .init(title: "Shiraz", brand: "Vartely4"),
@@ -35,7 +48,24 @@ class Library: ObservableObject {
         .init(title: "Shiraz", brand: "Vartely6"),
         .init(title: "Shiraz", brand: "Vartely7")
     ]
-    
-    @Published var uiImages: [WineBottle: UIImage] = [:]
-    
 }
+
+// MARK: - private
+
+private extension Section {
+    init(inStore: Bool) {
+        self = inStore ? .inStore : .inCollection
+    }
+}
+
+private extension Dictionary {
+    // parameter accepts eac key of dictionary and return a key for new dictionary
+    // postcondition = the collection of transformed keys must not contain duplicates
+    func mapKeys<Transformed>(
+      _ transform: (Key) throws -> Transformed
+    ) rethrows -> [Transformed: Value] {
+      .init(
+        uniqueKeysWithValues: try map { (try transform($0.key), $0.value) }
+      )
+    }
+  }

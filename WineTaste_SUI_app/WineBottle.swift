@@ -11,12 +11,12 @@ class WineBottle: ObservableObject {
     
     @Published var name: String
     @Published var brand: String
-    let year: String
-    let type: String
+    @Published var year: String
+    @Published var type: String
     @Published var review: String
     @Published var haveInCollection: Bool
     
-    init(title: String = "Denumire vin", brand: String = "Chateau Brand", review: String = "", year: String = "", type: String = "", haveInCollection: Bool = false) {
+    init(title: String = "Denumire vin", brand: String = "Chateau Brand", review: String = "", year: String = "", type: String = "", haveInCollection: Bool = false ) {
         self.name = title
         self.brand = brand
         self.review = review
