@@ -28,11 +28,16 @@ final class Library: ObservableObject {
     func addNewBottle(_ bottle: WineBottle, image: UIImage?) {
         itemsCashe.insert(bottle, at: 0)
         uiImages[bottle] = image
+        storeCancellable(for: bottle)
         
     }
     
     
     @Published var uiImages: [WineBottle: UIImage] = [:]
+    
+    init() {
+        itemsCashe.forEach(storeCancellable(for:))
+    }
     
     //the items that are already stored in the app's memory
     
@@ -48,9 +53,25 @@ final class Library: ObservableObject {
         .init(title: "Shiraz", brand: "Vartely6"),
         .init(title: "Shiraz", brand: "Vartely7")
     ]
+    
+    /// Forwards individual changes in bottles to be considered Library changes
+    
+    private var cancellables: Set<AnyCancellable> = []
 }
 
 // MARK: - private
+
+private extension Library {
+    func storeCancellable(for bottle: WineBottle) {
+        bottle.$haveInCollection.sink { [unowned self] _ in
+            objectWillChange.send()
+        }
+        .store(in: &cancellables)
+    }
+}
+
+
+
 
 private extension Section {
     init(inStore: Bool) {
