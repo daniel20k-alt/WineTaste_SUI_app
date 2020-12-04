@@ -74,8 +74,8 @@ private extension Library {
 
 
 private extension Section {
-    init(inStore: Bool) {
-        self = inStore ? .inStore : .inCollection
+    init(inCollection: Bool) {
+        self = inCollection ? .inCollection : .inStore
     }
 }
 
